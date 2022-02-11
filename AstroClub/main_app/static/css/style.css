@@ -8,3 +8,12 @@
     --nav-bar-bg: #F3F4F4;
 }
 
+
+@media only screen and (max-width: 599px){
+    
+    body {
+        background-color: var(--light-blue);
+    }
+
+
+}
