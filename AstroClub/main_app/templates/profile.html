@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+</head>
+<body>
+    <!-- individual user profile information will go in this page -->
+
+    <h1>Profile for User</h1>
+    <h4>Add a profile picture</h4>
+
+    {% if photo %}
+        <img src="{{ photo.url }}" alt="">
+    {% else %}
+        <h6>No photo uploaded</h6>
+    {% endif %}
+
+    <form action="{% url 'add_photo' %}" enctype="multipart/form-data" method="POST" class="card-panel">
+        {% csrf_token %}
+        <input type="file" name="photo-file">
+        <br><br>
+        <input type="submit" class="btn" value="Upload Photo">
+    </form>
+
+    <div style='font-weight: bold;'>Daily Horoscope: <span style = 'font-weight: normal; color: grey; display: block' id='api'></span></div>
+    <div style='font-weight: bold;'>Lucky Time: <span style = 'font-weight: normal; color: grey; display: block' id='apinum'></span></div>
+
+    <a href="{% url 'questions_one' %}">Questionnaire</a>
+    <a href="{% url 'matches' %}">View Matches</a>
+    <br><br>
+    <a style="display: block;" href="">Log Out (goes nowhere right now)</a>
+
+
+</body>
+<script>
+    // Add a variable and a template literal that feeds into the string below the user's actual sign
+    
+    let horoscope = document.querySelector('#api')
+    let horoscopeNum = document.querySelector('#apinum')
+
+    fetch("https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=capricorn&day=today", {
+	"method": "POST",
+	"headers": {
+		"x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
+		"x-rapidapi-key": "f8b2763b42msh1e3e6fc2c58638dp1e89bbjsn4c0e49670f6d"
+	}
+})
+.then(res=>res.json())
+.then(data => {
+	horoscope.innerHTML = data.description
+    horoscopeNum.innerHTML = data.lucky_time
+})
+.catch(err => {
+	console.error(err);
+});
+</script>
+</html>
