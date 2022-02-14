@@ -9,4 +9,11 @@ class Photo(models.Model):
     def __str__(self):
         return f"Photo for character_id:  @{self.url}"
 
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f'hello {self}'
+
    

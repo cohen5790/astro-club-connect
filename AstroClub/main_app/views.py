@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Photo
+from .models import Photo, User
 import uuid
 import boto3
 
@@ -7,8 +7,22 @@ S3_BASE_URL = 'https://s3-ca-central-1.amazonaws.com/'
 BUCKET = 'astro-club-bucket'
 
 
-def index(request):
+def home(request):
+    return render(request, 'home.html')
+
+def profile(request):
     return render(request, 'profile.html')
+
+def login(request):
+    return render(request, 'registration/login.html')
+
+def signup(request):
+    return render(request, 'registration/signup.html')
+
+
+
+
+
 
 def add_photo(request):
     # photo-file will be the "name" attribute on the <input type="file">
@@ -28,4 +42,4 @@ def add_photo(request):
         except:
             print('An error occurred uploading file to S3')
     return redirect('profile/')
-# Create your views here.
+
