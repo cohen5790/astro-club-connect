@@ -13,6 +13,9 @@ def home(request):
 def profile(request):
     return render(request, 'profile.html')
 
+def matches(request):
+    return render(request, 'matches.html')
+    
 def login(request):
     return render(request, 'registration/login.html')
 
@@ -37,8 +40,9 @@ def questions_two(request):
 def questions_three(request):
     return render(request, 'questions/questions_three.html')
 
-def matches(request):
-    return render(request, 'matches.html')
+def questions_matches(request):
+    return render(request, 'questions/questions_matches.html')
+
 
 
 

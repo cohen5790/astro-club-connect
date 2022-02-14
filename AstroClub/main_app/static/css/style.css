@@ -9,6 +9,11 @@
 }
 
 
+body {
+    background-color: green;
+    font-family: arial;
+}
+
 @media only screen and (max-width: 599px){
     
     body {
