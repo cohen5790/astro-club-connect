@@ -28,6 +28,18 @@ def intro_two(request):
 def intro_three(request):
     return render(request, 'intro/intro_three.html')
 
+def questions_one(request):
+    return render(request, 'questions/questions_one.html')
+
+def questions_two(request):
+    return render(request, 'questions/questions_two.html')
+
+def questions_three(request):
+    return render(request, 'questions/questions_three.html')
+
+def matches(request):
+    return render(request, 'matches.html')
+
 
 
 
