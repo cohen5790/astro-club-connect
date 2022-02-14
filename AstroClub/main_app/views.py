@@ -19,6 +19,15 @@ def login(request):
 def signup(request):
     return render(request, 'registration/signup.html')
 
+def intro_one(request):
+    return render(request, 'intro/intro_one.html')
+
+def intro_two(request):
+    return render(request, 'intro/intro_two.html')
+
+def intro_three(request):
+    return render(request, 'intro/intro_three.html')
+
 
 
 
