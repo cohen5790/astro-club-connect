@@ -38,7 +38,7 @@ class Profile(models.Model):
         (PISCES, 'Pisces'),
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    profile_pic = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True)
+    profile_pic = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
     horoscope = models.CharField(
         max_length=2,
         choices=HOROSCOPE_CHOICES,

@@ -1,10 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('profile/', views.profile, name="profile"),
+    path('accounts/profile/', views.profile, name="profile"), #change here from 'profiles/'
     path('matches/', views.matches, name="matches"),
     path('accounts/', views.login, name="login"),
     path('accounts/signup', views.signup, name="signup"),
@@ -18,5 +18,6 @@ urlpatterns = [
 
 
 
-    path('add_photo/', views.add_photo, name='add_photo')
+    path('add_photo/', views.add_photo, name='add_photo'),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
