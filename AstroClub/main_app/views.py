@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Photo, User
+from .models import Photo, Profile
 import uuid
 import boto3
 
