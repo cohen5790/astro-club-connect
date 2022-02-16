@@ -1,9 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>Questions One </h1>
+<p class="horoscope-title">What is your horoscope?</p>
+<br>
+<div class="horoscope-container">
+    <div><img src="{% static 'horoscopes/aries.svg' %}" alt="">
+    <p class="grid-item">Aries</p>
+    </div>
+    <div>
+    <img src="{% static 'horoscopes/taurus.svg' %}" alt="">
+    <p class="grid-item">Taurus</p>
+</div><div>
+    <img src="{% static 'horoscopes/gemini.svg' %}" alt="">
+    <p class="grid-item">Gemini</p>
+</div><div>
+    <img src="{% static 'horoscopes/cancer.svg' %}" alt="">
+    <p class="grid-item">Cancer</p>
+</div><div>
+    <img src="{% static 'horoscopes/leo.svg' %}" alt="">
+    <p class="grid-item">Leo</p>
+</div><div>
+    <img src="{% static 'horoscopes/virgo.svg' %}" alt="">
+    <p class="grid-item">Virgo</p>
+</div><div>
+    <img src="{% static 'horoscopes/libra.svg' %}" alt="">
+    <p class="grid-item">Libra</p>
+</div><div>
+    <img src="{% static 'horoscopes/scorpio.svg' %}" alt="">
+    <p class="grid-item">Scorpio</p>
+</div><div>
+    <img src="{% static 'horoscopes/sagitarius.svg' %}" alt="">
+    <p class="grid-item">Sagitarius</p>
+</div><div>
+    <img src="{% static 'horoscopes/capricorn.svg' %}" alt="">
+    <p class="grid-item">Capricorn</p>
+</div><div>
+    <img src="{% static 'horoscopes/aquarius.svg' %}" alt="">
+    <p class="grid-item">Aquarius</p>
+</div><div>
+    <img src="{% static 'horoscopes/pisces.svg' %}" alt="">
+    <p class="grid-item">Pisces</p>
+</div>
+</div>
 
+<a href="{% url 'questions_matches' %}">link just here for now</a>
 
-<a href="{% url 'questions_two' %}">Questions 2</a>
+<!-- Maybe add a button here depending on what we do for horoscope functionality -->
+
+<!-- <a href="{% url 'questions_two' %}">Questions 2</a> -->
 
 {% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="profile">PROFILE</div>
+
+
+<div class="no-pic"><img src="{% static 'images/no-pic.svg' %}" alt=""></div>
+
+<!-- there needs to be upload image functionality here (form/input... whatever)-->
+
+
+<h2 style="text-align: center;"> USER NAME HERE</h2>
+
+<p class="edit-title">ABOUT ME</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<input class="edit-area-2" type="text" placeholder="Insert text...">
+<p class="edit-title">FAVOURITE MOVIES</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<input class="edit-area-2" type="text" placeholder="Insert text...">
+<p class="edit-title">FAVOURITE FOODS</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<input class="edit-area-2" type="text" placeholder="Insert text...">
+<p class="edit-title">SOCIAL MEDIA</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<div class="ig-container">
+    <img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt="">
+    <input type="text" class="ig-text" placeholder="Instagram url">
+</div>
+<p style="text-align: center; color: #333333;">Complete your profile to start connecting!</p>
+<a style="color: black; text-decoration: none;" href="{% url 'questions_one' %}"><button class="continue-button">Continue</button></a>
+
+{% endblock %}

@@ -3,13 +3,16 @@
 <body>
     <!-- individual user profile information will go in this page -->
 
-    <h1>Profile for User</h1>
+    <h1>Profile for {{user.username}}</h1>
+    <a href="{% url 'profile_update' profile.id %}">Edit Profile</a>
+    <a href="{% url 'profile_delete' profile.id %}">Delete Profile</a>
     <h4>Add a profile picture</h4>
+    <h1>{{profile.first_name}}</h1>
 
-    {% if photo %}
-        <img src="{{ photo.url }}" alt="">
+    {% if profile.profile_pic %}
+        <img src="{{ profile.profile_pic.url }}" alt="">
     {% else %}
-        <h6>No photo uploaded</h6>
+        <h3>No photo uploaded</h3>
     {% endif %}
 
     <form action="{% url 'add_photo' %}" enctype="multipart/form-data" method="POST" class="card-panel">
@@ -19,8 +22,8 @@
         <input type="submit" class="btn" value="Upload Photo">
     </form>
 
-    <div style='font-weight: bold;'>Daily Horoscope: <span style = 'font-weight: normal; color: grey; display: block' id='api'></span></div>
-    <div style='font-weight: bold;'>Lucky Time: <span style = 'font-weight: normal; color: grey; display: block' id='apinum'></span></div>
+    <div style='font-weight: bold;'>Daily Horoscope: <span style = 'font-weight: normal; color: white; display: block' id='api'></span></div>
+    <div style='font-weight: bold;'>Lucky Time: <span style = 'font-weight: normal; color: white; display: block' id='apinum'></span></div>
 
     <a href="{% url 'questions_one' %}">Questionnaire</a>
     <a href="{% url 'matches' %}">View Matches</a>

@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>Intro 2 </h1>
+<img class="intro-image" src="{% static 'images/amico.svg' %}" alt="">
+<div class="intro-container"> 
+    <h4 class="intro-title">Get connected</h4>
+    <div class="intro-subtitle">Connect with people based on horoscope</div>
+</div>
 
-<a href="{% url 'intro_three' %}">Intro 3</a>
+<div class="dot-container">
+    <img src="{% static 'images/fillin.svg' %}" alt="">
+    <img src="{% static 'images/fillin.svg' %}" alt="">
+    <img src="{% static 'images/dot.svg' %}" alt="">
+</div>
+
+<div class="skip-container">
+    <a class="skip-message"href="{% url 'profile' %}">Skip</a><a href="{% url 'intro_three' %}"><img src="{% static 'images/arrow.svg' %}" alt=""></a>
+</div>
+
+
+
+<!-- <a href="{% url 'intro_three' %}">Intro 3</a> -->
 
 {% endblock %}

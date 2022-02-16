@@ -1,24 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
 :root {
-    --primary-yellow: #F7B633;
-    --primary-blue: #393D56;
-    --light-blue: #E5E9EE;
+    --primary-coral: #F88D74;
+    --primary-blue: #455A64;
+    --dark-blue: #263238;
     --dark-grey: #333333;
     --light-grey: #999999;
     --neutral-grey: #C4C4C4;
-    --nav-bar-bg: #F3F4F4;
+    --nav-bar-bg: #FFDFD7;
+    --background: #FBF1EF;
 }
 
 
 body {
-    background-color: green;
-    font-family: arial;
+    
+    background-color: white;
+    
 }
 
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 499px){
     
     body {
-        background-color: var(--light-blue);
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+        background-color: var(--background);
+    }
+    
+    #astroclub {
+        width: 296px;
+        height: 69px;
+        margin-bottom: -14px;
     }
 
+    .home-container {
+        background-color: var(--primary-coral);
+        margin-top: 84px;
+        height: 171px;
+    }
 
+    .home-logo-container {
+        
+        font-size: 18px;
+        text-align: center;
+        padding: 20px 47px;
+    }
+
+    #welcome-img {
+        display: block;
+        margin-top: 40px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-btn {
+        margin-top: 40px;
+        margin-bottom: 30px;
+        height: 65px;
+        width: 240px;
+        background-color: var(--primary-coral);
+        border-radius: 10px;
+        font-size: 18px;
+        border: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+
+    .login {
+        margin-left: 10px;
+        color: var(--primary-coral);
+    }
+
+    .started {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 88px;
+        color: var(--dark-grey);
+        font-size: 24px;
+    }
+
+    .intro-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 50px;
+        margin-right: 50px;
+        gap: 30px;
+    }
+
+    .intro-input {
+        margin-top: 10px;
+        width: 290px;
+        height: 36px;
+        border: 1px solid grey;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+
+    .intro-submit {
+        margin-top: 20px;
+        height: 50px;
+        width: 220px;
+        background-color: var(--primary-coral);
+        border-radius: 10px;
+        font-size: 22px;
+        border: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+    }
+
+    .intro-image {
+        display: block;
+        margin-top: 151px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 352px;
+        height: 255px;
+    }
+
+    .intro-container {
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .intro-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .intro-subtitle {
+        font-size: 18px;
+        color: var(--dark-grey);
+        text-align: center;
+    }
+
+    .dot-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 80px;
+    }
+
+    .skip-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 210px;
+        margin-top: 40px;
+    }
+
+    .skip-message {
+        text-decoration: none;
+        font-size: 15px;
+
+    }
+
+    .skip-message:visited {
+        color: black;
+    }
+
+    .started-button {
+        height: 45px;
+        width: 190px;
+        background-color: var(--primary-coral);
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .profile {
+        margin-top: 48px;
+        text-align: center;
+        letter-spacing: 4.8px;
+        font-size: 24px;
+    }
+
+    .no-pic {
+        margin-top: 36px;
+        display: flex;
+        justify-content: center;
+    }
+    .edit-area {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        height: 70px;
+        width: 350px;
+        border: 1px solid var(--light-grey);
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    .edit-area-2 {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        height: 40px;
+        width: 350px;
+        border: 1px solid var(--light-grey);
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+
+    .edit-title {
+        margin-left: 20px;
+        letter-spacing: 3px;
+        font-size: 15px;
+        margin-bottom: -5px;
+    }
+
+    .line {
+        margin-left: 20px;
+    }
+
+    .ig {
+        display: block;
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+    .ig-container{
+        margin-top: 3px;
+        display: flex;
+        gap: 10px;
+
+    }
+    .ig-text {
+        margin-top: 5px;
+        height: 30px;
+        width: 299px;
+        border: 1px solid var(--light-grey);
+        border-radius: 10px;
+    }
+    input[type=placeholder] {
+        color: grey;
+    }
+    /* style these placeholders later */
+
+    .continue-button {
+        display: block;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 35px;
+        width: 160px;
+        background-color: var(--primary-coral);
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .horoscope-title {
+        margin-top: 50px;
+        margin-bottom: 25px;
+        text-align: center;
+        font-size: 24px;
+        color: var(--dark-grey);
+    }
+
+    .horoscope-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 25px;
+        column-gap: 35px;
+    }
+    .grid-item {
+        text-align: center;
+        color: var(--dark-grey);
+    }
 }
