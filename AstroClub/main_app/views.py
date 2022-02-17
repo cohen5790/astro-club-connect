@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
 from .models import Horoscope, Photo, Profile
+from django.contrib.auth.models import User
 
 S3_BASE_URL = 'https://s3-ca-central-1.amazonaws.com/' 
 BUCKET = 'astro-club-bucket'
@@ -28,9 +29,13 @@ def signup(request):
 
 @login_required
 def profile(request):
-  profile = Profile.objects.get(user = request.user)
-  print('this is my profile', profile.profile_pic)
-  return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
+    profile = Profile.objects.get(user__pk = request.user.id)
+    return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
+
+@login_required
+def matches(request):
+    matches = User.objects.filter(horoscope__horoscope = request.user.horoscope.horoscope).exclude(id = request.user.id)[:3]
+    return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
@@ -49,6 +54,11 @@ class HoroscopeCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+class HoroscopeUpdate(LoginRequiredMixin, UpdateView):
+    model = Horoscope
+    fields = ['horoscope']
+    success_url = '/profile/'
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
@@ -81,15 +91,14 @@ def add_photo(request):
 
 
 
+
+
 #-----------------------------------------------------------------------------------------------------------------------------------
 
 
 
 def home(request):
     return render(request, 'home.html')
-
-def matches(request):
-    return render(request, 'matches.html')
 
 def intro_one(request):
     return render(request, 'intro/intro_one.html')

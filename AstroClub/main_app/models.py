@@ -49,7 +49,7 @@ class Horoscope(models.Model):
     horoscope = models.CharField(
         max_length=2,
         choices=HOROSCOPE_CHOICES,
-        default='',
+        default='Capricorn',
         )
     
 
