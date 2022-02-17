@@ -21,7 +21,7 @@ class Profile(models.Model):
     social_handles = models.CharField(max_length=500, default='', blank=True)
 
 class Horoscope(models.Model):
-    CAPRICORN = 'CA'
+    CAPRICORN = 'CP'
     TAURUS = 'TA'
     GEMINI = 'GE'
     CANCER = 'CA'
@@ -32,6 +32,7 @@ class Horoscope(models.Model):
     SAGITTARIUS = 'SA'
     AQUARIUS = 'AQ'
     PISCES = 'PI'
+    ARIES = 'AR'
     HOROSCOPE_CHOICES = [
         (CAPRICORN, 'Capricorn'),
         (TAURUS, 'Taurus'),
@@ -44,6 +45,7 @@ class Horoscope(models.Model):
         (SAGITTARIUS, 'Sagittarius'),
         (AQUARIUS, 'Aquarius'),
         (PISCES, 'Pisces'),
+        (ARIES, 'Aries')
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     horoscope = models.CharField(

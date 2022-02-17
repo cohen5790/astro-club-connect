@@ -8,6 +8,7 @@ import uuid
 import boto3
 from .models import Horoscope, Photo, Profile
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 S3_BASE_URL = 'https://s3-ca-central-1.amazonaws.com/' 
 BUCKET = 'astro-club-bucket'
@@ -33,9 +34,44 @@ def profile(request):
     return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
 
 @login_required
+def profile_view(request):
+    profile = Profile.objects.get(user__pk = request.user.id)
+    return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
+
+@login_required
 def matches(request):
-    matches = User.objects.filter(horoscope__horoscope = request.user.horoscope.horoscope).exclude(id = request.user.id)[:3]
-    return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
+    user_sign = request.user.horoscope.horoscope
+    print(user_sign)
+    if user_sign == 'VI' or user_sign == 'PI':
+        matches = User.objects.filter(
+            Q(horoscope__horoscope = 'CP') | Q(horoscope__horoscope = 'CA') | Q(horoscope__horoscope = 'TA') | Q(horoscope__horoscope = 'SC'))[:3]
+        print(matches)
+        return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
+    if user_sign == 'AR' or user_sign == 'LI':
+        matches = User.objects.filter(
+            Q(horoscope__horoscope = 'GE') | Q(horoscope__horoscope = 'LE') | Q(horoscope__horoscope = 'SA') | Q(horoscope__horoscope = 'AQ'))[:3]
+        print(matches)
+        return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
+    if user_sign == 'TA' or user_sign == 'SC':
+        matches = User.objects.filter(
+            Q(horoscope__horoscope = 'CA') | Q(horoscope__horoscope = 'VI') | Q(horoscope__horoscope = 'CP') | Q(horoscope__horoscope = 'PI'))[:3]
+        print(matches)
+        return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
+    if user_sign == 'GE' or user_sign == 'SA':
+        matches = User.objects.filter(
+            Q(horoscope__horoscope = 'LI') | Q(horoscope__horoscope = 'AQ') | Q(horoscope__horoscope = 'AR') | Q(horoscope__horoscope = 'LE'))[:3]
+        print(matches)
+        return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
+    if user_sign == 'CA' or user_sign == 'CP':
+        matches = User.objects.filter(
+            Q(horoscope__horoscope = 'TA') | Q(horoscope__horoscope = 'VI') | Q(horoscope__horoscope = 'SC') | Q(horoscope__horoscope = 'PI'))[:3]
+        print(matches)
+        return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
+    if user_sign == 'LE' or user_sign == 'AQ':
+        matches = User.objects.filter(
+            Q(horoscope__horoscope = 'AR') | Q(horoscope__horoscope = 'GE') | Q(horoscope__horoscope = 'LI') | Q(horoscope__horoscope = 'SA'))[:3]
+        print(matches)
+        return render(request, 'matches.html', { 'matches': matches, 'user': request.user })
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile

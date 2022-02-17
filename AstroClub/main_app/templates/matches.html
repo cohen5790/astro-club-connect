@@ -1,9 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>Matches</h1>
 
+<div style="text-align: center; font-size: 24px; letter-spacing: 4.8px; margin-top: 48px;">
+    Personal matches
+</div>
 
-<a href="{% url 'profile' %}">Profile</a>
+<div class="match-container">
+    {% for match in matches %}
+        <div class="match-card">
+            <img src="{% static 'images/checkmark.svg' %}" alt=""><br>
+            <p>{{match.username}}</p><br>
+            <p>{{match.horoscope.horoscope}}</p><br>
+            <p>{{match.social_handles}}</p><br>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="bottom-nav-container">
+    <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
+    <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
+    <div><a class="nav" href="">LOG OUT</a></div>
+</div>
+
 
 {% endblock %}

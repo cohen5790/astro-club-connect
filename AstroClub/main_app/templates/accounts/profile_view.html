@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <h1>{{user.username}}</h1>
+    {% if profile.profile_pic %}
+        <img src="{{ profile.profile_pic.url }}" alt="">
+    {% else %}
+        <h3>No photo uploaded</h3>
+    {% endif %}
+    <h2>{{profile.first_name}}</h2>
+    <h2>{{profile.last_name}}</h2>
+    
+        <div style='font-weight: bold;'>Daily Horoscope: <span style = 'font-weight: normal; color: white; display: block' id='api'></span></div>
+    <div style='font-weight: bold;'>Lucky Time: <span style = 'font-weight: normal; color: white; display: block' id='apinum'></span></div>
+
+       <br><br>    
+
+</body>
+<script>
+    // Add a variable and a template literal that feeds into the string below the user's actual sign
+    
+    let horoscope = document.querySelector('#api')
+    let horoscopeNum = document.querySelector('#apinum')
+
+    fetch("https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=capricorn&day=today", {
+	"method": "POST",
+	"headers": {
+		"x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
+		"x-rapidapi-key": "f8b2763b42msh1e3e6fc2c58638dp1e89bbjsn4c0e49670f6d"
+	}
+})
+.then(res=>res.json())
+.then(data => {
+	horoscope.innerHTML = data.description
+    horoscopeNum.innerHTML = data.lucky_time
+})
+.catch(err => {
+	console.error(err);
+});
+</script>
+
+
+{% endblock %}
