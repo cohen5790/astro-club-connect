@@ -11,17 +11,19 @@
     {% for match in matches %}
         <div class="match-card">
             <img src="{% static 'images/checkmark.svg' %}" alt=""><br>
-            <p>{{match.username}}</p><br>
-            <p>{{match.horoscope.horoscope}}</p><br>
-            <p>{{match.social_handles}}</p><br>
+            <p class="edit-title">USERNAME</p>
+            <div class="profile-details">{{match.username}}</div>
+            <p class="edit-title">SIGN</p>
+            <div class="profile-details">{{match.horoscope.horoscope}}</div>
         </div>
+        <a href="{% url 'profile_view' match.id %}">View Profile</a>        
     {% endfor %}
 </div>
 
 <div class="bottom-nav-container">
     <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
     <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
-    <div><a class="nav" href="">LOG OUT</a></div>
+    <div><a class="nav" href="{% url 'home' %}">LOG OUT</a></div>
 </div>
 
 

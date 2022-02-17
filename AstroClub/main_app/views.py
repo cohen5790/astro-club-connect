@@ -34,9 +34,9 @@ def profile(request):
     return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
 
 @login_required
-def profile_view(request):
-    profile = Profile.objects.get(user__pk = request.user.id)
-    return render(request, 'accounts/profile.html', { 'profile': profile, 'user': request.user })
+def profile_view(request, pk):
+    profile = Profile.objects.get(user__pk = pk)
+    return render(request, 'accounts/profile_view.html', { 'profile': profile, 'user': request.user })
 
 @login_required
 def matches(request):

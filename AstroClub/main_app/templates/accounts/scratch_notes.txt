@@ -26,6 +26,10 @@
     <a style="display: block;" href="">Log Out (goes nowhere right now)</a>
 
 
+<a href="{% url 'profile' match.id %}">MATCHES</a> for match template to link to matche's profile_view
+
+<a href="{% url 'profile' match.id %}">View Profile</a>
+
 
 ERIC
 
