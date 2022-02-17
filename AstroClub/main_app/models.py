@@ -40,9 +40,9 @@ class Profile(models.Model):
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=50, default='firstname')
-    last_name = models.CharField(max_length=50, default='lastname')
-    social_handles = models.CharField(max_length=500, default='socialhandles', blank=True)
+    first_name = models.CharField(max_length=50, default='')
+    last_name = models.CharField(max_length=50, default='')
+    social_handles = models.CharField(max_length=500, default='', blank=True)
     horoscope = models.CharField(
         max_length=2,
         choices=HOROSCOPE_CHOICES,

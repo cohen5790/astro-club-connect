@@ -14,7 +14,7 @@
 
 body {
     
-    background-color: white;
+    background-color: black;
     
 }
 
@@ -278,5 +278,123 @@ body {
     .grid-item {
         text-align: center;
         color: var(--dark-grey);
+    }
+
+    .check {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 58px;
+        margin-bottom: 22px;
+    }
+
+    .match-container {
+        margin-top: 35px;
+        display: grid;
+        
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+    }
+    .match-card {
+        width: 330px;
+        height: 121px;
+        background-color: var(--nav-bar-bg);
+        justify-self: center;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        display: flex;
+    }
+
+    .profile-details {
+        margin-left: 21px;
+        margin-right: 21px;
+        color: var(--dark-grey);
+        font-size: 15px;
+    }
+
+    .horoscope-container-2 {
+        margin-top: 35px;
+        display: grid;
+        
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+    }
+
+    .horoscope-card {
+        width: 330px;
+        height: 240px;
+        background-color: var(--nav-bar-bg);
+        justify-self: center;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+       
+    }
+
+    .horoscope-card-2 {
+        width: 330px;
+        height: 90px;
+        background-color: var(--nav-bar-bg);
+        justify-self: center;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+       
+    }
+
+    .h-title {
+        margin-bottom: 10px;
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        letter-spacing: 4.8px;
+    }
+
+    .h-d {
+        display: block;
+        color: var(--dark-grey);
+        margin-left: 21px;
+        margin-right: 21px;
+        margin-top: 5px;
+        font-size: 15px;
+    }
+
+    .sign-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        height: 39px;
+        width: 114px;
+        border-radius: 10px;
+        color: var(--dark-grey);
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+
+    .bottom-nav-container {
+        position: absolute;
+        bottom: 0;
+        height: 49px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100vw;
+        background-color: var(--nav-bar-bg);
+    }
+    
+    .nav {
+        color: var(--dark-grey); 
+        font-size: 14px;
+    }
+
+    .nav:visited {
+        color: var(--dark-grey);
+        font-size: 14px;
+    }
+
+    .edit-btn {
+        position: absolute;
+        right: 29px;
     }
 }
