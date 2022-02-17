@@ -8,6 +8,7 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('matches/', views.matches, name="matches"),
     path('profile/new/', views.ProfileCreate.as_view(), name='profile_create'),
+    path('horoscope/new/', views.HoroscopeCreate.as_view(), name='horoscope_create'),
     path('profile/<int:pk>/delete/', views.ProfileDelete.as_view(), name='profile_delete'),
     path('profile/<int:pk>/update/', views.ProfileUpdate.as_view(), name='profile_update'),
     # path('accounts/', views.login, name="login"),

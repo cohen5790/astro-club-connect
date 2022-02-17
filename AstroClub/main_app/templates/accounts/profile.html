@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <body>
-    <!-- individual user profile information will go in this page -->
-
     <h1>Profile for {{user.username}}</h1>
     <a href="{% url 'profile_update' profile.id %}">Edit Profile</a>
     <a href="{% url 'profile_delete' profile.id %}">Delete Profile</a>
@@ -29,7 +28,7 @@
     <a href="{% url 'matches' %}">View Matches</a>
     <br><br>
     <a style="display: block;" href="">Log Out (goes nowhere right now)</a>
-
+    
 
 </body>
 <script>
@@ -54,4 +53,6 @@
 	console.error(err);
 });
 </script>
+
+
 {% endblock %}

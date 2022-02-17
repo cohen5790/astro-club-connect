@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
-from .models import Photo, Profile
+from .models import Horoscope, Photo, Profile
 
 S3_BASE_URL = 'https://s3-ca-central-1.amazonaws.com/' 
 BUCKET = 'astro-club-bucket'
@@ -34,7 +34,16 @@ def profile(request):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles', 'horoscope']
+    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles']
+    success_url = '/horoscope/new'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class HoroscopeCreate(LoginRequiredMixin, CreateView):
+    model = Horoscope
+    fields = ['horoscope']
     success_url = '/profile/'
 
     def form_valid(self, form):
@@ -43,7 +52,7 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
-    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles', 'horoscope']
+    fields = ['profile_pic', 'first_name', 'last_name', 'social_handles']
     success_url = '/profile/'
 
 class ProfileDelete(DeleteView):

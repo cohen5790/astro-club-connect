@@ -14,6 +14,13 @@ class Photo(models.Model):
         return f"Photo for character_id:  @{self.url}"
 
 class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
+    first_name = models.CharField(max_length=50, default='')
+    last_name = models.CharField(max_length=50, default='')
+    social_handles = models.CharField(max_length=500, default='', blank=True)
+
+class Horoscope(models.Model):
     CAPRICORN = 'CA'
     TAURUS = 'TA'
     GEMINI = 'GE'
@@ -39,16 +46,11 @@ class Profile(models.Model):
         (PISCES, 'Pisces'),
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_pic = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=50, default='')
-    last_name = models.CharField(max_length=50, default='')
-    social_handles = models.CharField(max_length=500, default='', blank=True)
     horoscope = models.CharField(
         max_length=2,
         choices=HOROSCOPE_CHOICES,
-        default='CAPRICORN',
+        default='',
         )
     
-    # def __str__()
 
     
