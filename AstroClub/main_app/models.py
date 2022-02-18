@@ -46,7 +46,7 @@ class Horoscope(models.Model):
         (PISCES, 'Pisces'),
         (ARIES, 'Aries')
     ]
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
     horoscope = models.CharField(
         max_length=2,
         choices=HOROSCOPE_CHOICES,

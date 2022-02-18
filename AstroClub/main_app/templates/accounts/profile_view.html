@@ -18,25 +18,25 @@
 <div class="sign-box">Sign: {{user.horoscope.horoscope}}</div>
 
 <p class="edit-title">HOBBIES</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="profile-details">Hobbies go here</div>
 <p class="edit-title">FAVOURITE MOVIES</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="profile-details">Movie info goes here</div>
 <p class="edit-title">FAVOURITE FOODS</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="profile-details">Food info goes here</div>
 <p class="edit-title">SOCIAL MEDIA</p>
-<!-- <img class="line" src="{% static 'images/small-line.svg' %}" alt=""> -->
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
 <div class="ig-container">
-    <!-- <img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt=""> -->
-    <div style="margin-top: 10px;"class="ig-details">{{user.username}}@social.com</div>
+<img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt="">
+<div style="margin-top: 10px;"class="ig-details">{{user.username}}@social.com</div>
 </div>
 
 <div class="bottom-nav-container">
     <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
     <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
-    <div><a class="nav" href="">LOG OUT</a></div>
+    <div><a class="nav" href="{% url 'home' %}">LOG OUT</a></div>
 </div>
 
 
