@@ -14,7 +14,7 @@
             <p class="edit-title">USERNAME</p>
             <div class="profile-details">{{match.username}}</div>
             <p class="edit-title">SIGN</p>
-            <div class="profile-details">{{match.horoscope.horoscope}}</div>
+            <div class="profile-details">{{match.horoscope.text}}</div>
         </div>
         <a href="{% url 'profile_view' match.id %}">View Profile</a>        
     {% endfor %}

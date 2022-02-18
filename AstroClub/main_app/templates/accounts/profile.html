@@ -24,20 +24,23 @@
     {% endif %}
 </div>
 
-<p class="edit-title">SIGN: {{user.horoscope.horoscope}}</p>
-<p class="edit-title">HOBBIES</p>
-<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
-<div class="profile-details">Hobbies go here</div>
-<p class="edit-title">FAVOURITE MOVIES</p>
-<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
-<div class="profile-details">Movie info goes here</div>
-<p class="edit-title">FAVOURITE FOODS</p>
-<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
-<div class="profile-details">Food info goes here</div>
-<p class="edit-title">SOCIAL MEDIA</p>
-<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
-<div class="profile-details">{{user.username}}@social.com</div>
-<img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt="">
+<div>
+    <p class="edit-title">SIGN: {{user.horoscope.text}}</p>
+    <img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+    <p class="edit-title">HOBBIES</p>
+    <img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+    <div class="profile-details">Hobbies go here</div>
+    <p class="edit-title">FAVOURITE MOVIES</p>
+    <img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+    <div class="profile-details">Movie info goes here</div>
+    <p class="edit-title">FAVOURITE FOODS</p>
+    <img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+    <div class="profile-details">Food info goes here</div>
+    <p class="edit-title">SOCIAL MEDIA</p>
+    <img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+    <div class="profile-details">{{user.username}}@social.com</div>
+    <img class="ig" style="display: inline"src="{% static 'images/ig.svg' %}" alt="">
+</div>
 
 <div class="bottom-nav-container">
     <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
