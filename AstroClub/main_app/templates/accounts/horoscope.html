@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="profile">HOROSCOPE</div>
+
+
+<div class="no-pic"><img style="width: 150px; height: 150px; border-radius: 50%;" src="{{ profile.image.url }}" alt=""></div>
+
+<!-- there needs to be upload image functionality here (form/input... whatever)-->
+
+
+<h2 style="text-align: center; margin-bottom: 15px;"> USER NAME HERE</h2>
+
+<div class="sign-box">SIGN HERE</div>
+
+<p class="edit-title">DESCRIPTION</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<span class="h-d" id='api'></span>
+<p class="edit-title">LUCKY TIME</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<span class="h-d" id='apinum'></span>
+<p class="edit-title">MOOD</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<span class="h-d" id='apimood'></span>
+<p class="edit-title">COLOR</p>
+<img class="line" src="{% static 'images/small-line.svg' %}" alt="">
+<span class="h-d" id='apicolor'></span>
+
+<div class="bottom-nav-container">
+    <div><a class="nav" href="{% url 'matches' %}">MATCHES</a></div>
+    <div><a class="nav" href="{% url 'profile' %}">PROFILE</a></div>
+    <div><a class="nav" href="">LOG OUT</a></div>
+</div>
+
+
+<!-- <div class="horoscope-container-2">
+    <div class="horoscope-card"><span class="h-title">Daily Horoscope</span> <span class="h-d" id='api'></span></div>
+    <div class="horoscope-card-2"><span class="h-title">Lucky Time </span> <span class="h-d" id='apinum'></span></div>
+    <div class="horoscope-card-2"><span class="h-title">Mood </span><span class="h-d" id='apimood'></span></div>
+    <div class="horoscope-card-2"><span class="h-title">Color </span> <span class="h-d" id='apicolor'></span></div>
+</div> -->
+
+<script>
+    // Add a variable and a template literal that feeds into the string below the user's actual sign
+    
+    let horoscope = document.querySelector('#api')
+    let horoscopeNum = document.querySelector('#apinum')
+    let horoscopeMood = document.querySelector('#apimood')
+    let horoscopeColor = document.querySelector('#apicolor')
+
+    fetch("https://sameer-kumar-aztro-v1.p.rapidapi.com/?sign=gemini&day=today", {
+	"method": "POST",
+	"headers": {
+		"x-rapidapi-host": "sameer-kumar-aztro-v1.p.rapidapi.com",
+		"x-rapidapi-key": "f8b2763b42msh1e3e6fc2c58638dp1e89bbjsn4c0e49670f6d"
+	}
+})
+.then(res=>res.json())
+.then(data => {
+	horoscope.innerHTML = data.description
+    horoscopeNum.innerHTML = data.lucky_time
+    horoscopeMood.innerHTML = data.mood
+    horoscopeColor.innerHTML = data.color
+})
+.catch(err => {
+	console.error(err);
+});
+</script>
+{% endblock %}

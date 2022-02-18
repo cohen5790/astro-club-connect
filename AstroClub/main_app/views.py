@@ -229,6 +229,13 @@ def add_photo(request):
             print('An error occurred uploading file to S3')
     return redirect('/profile/')
 
+@login_required
+def horoscope(request):
+    profile = Profile.objects.get(user = request.user)
+    return render(request, 'accounts/horoscope.html', {
+        "profile": profile
+    })
+
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------

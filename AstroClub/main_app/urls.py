@@ -6,6 +6,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('profile/', views.profile, name="profile"),
+    path('horoscope/', views.horoscope, name="horoscope"),
     path('profile/<int:pk>', views.profile_view, name="profile_view"),
     path('matches/', views.matches, name="matches"),
     path('profile/new/', views.ProfileCreate.as_view(), name='profile_create'),
